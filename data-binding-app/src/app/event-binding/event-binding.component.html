@@ -1,0 +1,59 @@
+<p>event-binding works!</p>
+<section>
+    <button mat-button color="primary" (click)=save()>save</button>
+    <button mat-button color="warn" (click)=inc()>{{buttonName}}</button>
+</section>
+<section>
+    <button mat-button color="primary" [disabled]="!btnEnable">My button 1</button>
+    <button mat-button color="warn" [disabled]="!btnEnable">My button 2</button>
+    <button mat-button color="warn" (click)=disable()> Disable</button>
+
+    <mat-progress-spinner
+        color="primary"
+        [mode]="spinnerMode"
+        [value]="[spinnervalue]">
+    </mat-progress-spinner>
+</section>
+<section>
+    <p>
+        <mat-checkbox color="warn" (change)="cbChange($event)" >Disable/Enable</mat-checkbox>
+    </p>
+    <p>
+        <mat-card>
+            <mat-card-content>
+                <mat-form-field>
+                    <mat-label>Cars</mat-label>
+                    <mat-select matNativeControl required [disabled]="selectDisable" (selectionChange)="selectChange($event)">
+                      <mat-option value="1">Volvo</mat-option>
+                      <mat-option value="2">Saab</mat-option>
+                      <mat-option value="3">Mercedes</mat-option>
+                      <mat-option value="4">Audi</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <p>selected option {{ selectedOption }}</p>
+            </mat-card-actions>
+        </mat-card>
+    </p>
+</section>
+<section>
+    <p>
+        <mat-checkbox color="warn" (change)="cbChange($event)" >Disable/Enable</mat-checkbox>
+    </p>
+    <p>
+        <mat-card>
+            <mat-card-content>
+                <mat-form-field appearance="fill">
+                    <mat-label>Input</mat-label>
+                    <input matInput placeholder="First Name" (input)="inputName = $event.target.value" [value]="inputName">
+                </mat-form-field>
+                  
+            </mat-card-content>
+            <mat-card-actions>
+                <p>Name: {{ inputName }}</p>
+            </mat-card-actions>
+        </mat-card>
+    </p>
+</section>
+
